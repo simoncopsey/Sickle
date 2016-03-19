@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.5'
+- 3.5-dev
+- nightly
+install: pip install -r requirements.txt
+script:
+- py.test
+before_script:
+- export PYTHONPATH=$PYTHONPATH:$(pwd)
+deploy:
+  provider: heroku
+  api_key:
+    secure: "o2Ij8X/nxCBAXgmIPdwpAe7CMcQWMsnTEujf/oHvKGW4RuBpuqBx9zoQBmp63dE+gVyWAMP2Z719AIk2WURqNr6lNvfeVRN64LyTU8KEeMRJcqW+hIIrdMAeHfsW2H3tcXrUREitsno6qeS2radUeWrQtCra67JvndcoRYkVzry7Wa/lqYn9l8Q4rxSgwL+sgc7na6qd0iP96bAGYyP+p2SyCP5mexOJh6NJ2sVZircnyGPs74ygpW9rh0ACUpY41WncKeznQLE4yBma8+Y9hijIMmscOAt6TAv+3y4nbMe8RbAN+wqqj/0A2US32Uo2U8Ntxa4Mn8KAf3IEZl8fp74NzVJy31ZE9okB53RukgP+v7OxbzJW34gTVqYcIIV50rrQiYRkdzyW03lMJ4pp74ip3N7TWWOZqO28xuq6bAwFQ2QbWRtqoqKH/LTb0XMRbcM6HPx2KwWKLb+a4mAaQOY4GpPSE9i/ZmdzGQRdWetG2TuLzS7o+WLzi3uqlk7gGTN5Szs99f+aWetsoy+2ewat82Un+2NjhE8jgtlxNf00uUB2MmmoxkJ5vW161Y9tK51OLDn01aqGmUKdt9+JPAL23RyyeinW8zaxDZM8kr9j/nl+qLq+fFRL3X3fmoCzMp0FbQZUaCcJhhw4njTXVrlvSHV9cR/1D0tvgYq2bhc="
+  app: sickle-staging
+  on:
+    repo: simoncopsey/sickle
