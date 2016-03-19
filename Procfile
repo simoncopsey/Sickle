@@ -1,1 +1,1 @@
-web: python sickle.py
+web: python sickle.py ${PORT}
